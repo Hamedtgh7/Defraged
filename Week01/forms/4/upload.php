@@ -54,9 +54,12 @@ if (isset($_POST['submit'])) {
                 move_uploaded_file($file_path, __DIR__ . '/texts/' . $file_name);
             }
         } else {
-            foreach ($errors as $error) {
-                echo $error;
-            }
+            foreach ($errors as $error) {?>
+                <div class="container">
+                    <label> <?php echo $error; ?></label><br>
+                </div>
+
+<?php }
         }
     }
 }
