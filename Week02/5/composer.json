@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "name": "emertat/5",
+    "autoload": {
+        "psr-4": {
+            "trip\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hamed",
+            "email": "hamedtgh17@gmail.com"
+        }
+    ],
+    "require": {}
+}
