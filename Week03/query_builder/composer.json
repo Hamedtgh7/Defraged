@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "name": "emertat/query_builder",
+    "autoload": {
+        "psr-4": {
+            "query\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hamed",
+            "email": "hamedtgh17@gmail.com"
+        }
+    ],
+    "require": {}
+}

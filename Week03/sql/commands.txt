@@ -1,0 +1,50 @@
+DROP DATABASE record_company;
+CREATE DATABASE record_company;
+USE record_company;
+
+CREATE TABLE bands (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE albums (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  release_year INT,
+  band_id INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (band_id) REFERENCES bands(id)
+);
+CREATE TABLE songs(
+    id int NOT NULL AUTO_INCREMENT,
+    PRIMARY key (id),
+    name varchar(255) NOT NULL,
+    length float NOT NULL,
+    albums_id int NOT NULL,
+    FOREIGN KEY (albums_id) REFERENCES albums(id)
+);
+INSERT INTO bands (name) VALUES ('mxband'),('yband'),('1band');
+INSERT into albums (name,release_year,band_id) VALUES ('love',2016,1),('happy',2019,2),('sad',NULL,2);
+INSERT INTO songs (name,length,albums_id) VALUES ('lovely',2.45,1),('endless',1.3,1),('happiness',3.15,2);
+
+SELECT name as 'Band Name' FROM bands;  
+
+SELECT * FROM albums ORDER by 'releas_year' LIMIT 1;
+
+SELECT bands.name as 'Band Name' FROM bands JOIN albums ON bands.id=albums.band_id;
+
+SELECT bands.name as 'Band Name' FROM bands LEFT JOIN albums ON bands.id=albums.band_id GROUP by albums.band_id HAVING COUNT(albums.id)=0 ;
+
+SELECT albums.name as 'Name',albums.release_year as 'Release Year',SUM(songs.length) as 'Duration' FROM albums LEFT JOIN songs ON albums.id=songs.albums_id GROUP BY songs.albums_id ORDER BY 'Duration' LIMIT 1 ;
+
+UPDATE albums SET release_year=1986 WHERE release_year IS NULL;
+
+SELECT * FROM albums ;
+
+SELECT AVG(length) as 'Average Song Duration' FROM songs ;
+
+SELECT albums.name as 'Album', albums.release_year as 'Release Year',MAX(songs.length) as 'Duration' FROM albums LEFT JOIN songs ON albums.id=songs.albums_id GROUP by albums.name HAVING Duration IS NOT Null;
+
+SELECT bands.name as 'Bands',COUNT(songs.id) as 'Number of Songs' FROM bands LEFT JOIN albums ON bands.id=albums.band_id LEFT JOIN songs ON albums.id=songs.albums_id GROUP BY bands.name;
+
