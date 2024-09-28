@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+input {
+    margin: 5px;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+button {
+    margin-top: 20px;
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+}
+
+.container2 {
+    margin-top: 40px;
+}
+
+table {
+    height: 100%;
+    width: 100%;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
